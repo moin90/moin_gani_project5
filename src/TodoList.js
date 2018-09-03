@@ -6,7 +6,7 @@ class TodoList extends Component {
         return(
             <div className="todolist">
                 <div className="todolistContent pack">
-                    <h2>What to Pack</h2>
+                    <h2>What To Pack</h2>
                     <ul className="fa-ul">
                         {Object.keys(this.props.packTodos).map((key) =>{
                             return (
@@ -40,7 +40,7 @@ class TodoList extends Component {
                 </div>
 
                 <div className="todolistContent visit">
-                    <h2>Places to Visit</h2>
+                    <h2>Places To Visit</h2>
                     <ul className="fa-ul">
                         {Object.keys(this.props.visitTodos).map((key) => {
                             return (

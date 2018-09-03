@@ -32,6 +32,10 @@ h1 {
   letter-spacing: 1px;
 }
 
+h2 {
+  border-bottom: 1px solid black;
+}
+
 h4 {
   margin-top: 5px;
   padding-bottom: 5px;
@@ -59,8 +63,13 @@ footer {
   background-color: black;
   text-align: center;
   font-size: 1.2rem;
-  padding: 5px;
+  padding: 10px;
   letter-spacing: 0.2px;
+}
+
+footer a:hover {
+  color: lightsalmon;
+  transition: 0.2s all ease;
 }
 
 footer span {
@@ -73,11 +82,10 @@ footer i {
 }
 
 .todolist {
-display: flex;
-margin-top: 15px;
-padding: 15px;
-justify-content: center;
-border-bottom: 1px dotted black;
+  display: flex;
+  margin-top: 15px;
+  padding: 15px;
+  justify-content: center;
 }
 
 .todolistContent {
@@ -89,6 +97,10 @@ border-bottom: 1px dotted black;
 
 .pack, .visit, .buy {
   max-width: 33%;
+}
+
+.fa-li {
+  left: -1.5em;
 }
 
 .todolistContent:nth-of-type(1) {
@@ -219,18 +231,20 @@ li:nth-of-type(1) {
   input {
     margin-left: 0;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 10px;
     width: 80%;
   }
 
   h2 {
     border-bottom: 1px solid black;
+    margin-bottom: 0;
   }
 
   .todolist {
     flex-direction: column;    
     justify-content: center;
     align-items: center;
+    margin-top: 5px;
   }
 
   .todolistContent {
@@ -240,7 +254,6 @@ li:nth-of-type(1) {
   .pack, .buy, .visit {
     max-width: 100%;
   }
-
 }
 
   @media (max-width: 450px) {

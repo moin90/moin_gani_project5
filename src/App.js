@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './app.css';
 import firebase from './firebase';
 import Form from './Form'
 import TodoList from './TodoList';

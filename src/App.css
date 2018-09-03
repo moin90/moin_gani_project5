@@ -207,7 +207,7 @@ li:nth-of-type(1) {
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 566px) {
   header {
     width: 100%
   }
@@ -226,19 +226,9 @@ li:nth-of-type(1) {
   h2 {
     border-bottom: 1px solid black;
   }
-}
-
-@media (max-width: 450px) {
-  footer {
-    display: none;
-  }
-
-  header h4 {
-    display: none;
-  }
 
   .todolist {
-    flex-direction: column;
+    flex-direction: column;    
     justify-content: center;
     align-items: center;
   }
@@ -246,6 +236,21 @@ li:nth-of-type(1) {
   .todolistContent {
     margin-left: 0;
   }  
+
+  .pack, .buy, .visit {
+    max-width: 100%;
+  }
+
+}
+
+  @media (max-width: 450px) {
+    footer {
+      display: none;
+  }
+
+    header h4 {
+      display: none;
+  }
 }
 
 

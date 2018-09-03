@@ -14,71 +14,110 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      todos: [],
+      packTodos: [],
+      buyTodos: [],
+      visitTodos: []
     }
   }
 
+  
   componentDidMount() {
     packingRef.on('value', (snapshot) => {
-       console.log(snapshot.val());
+        let data = snapshot.val();
+        if (data === null) {
+          data = {};
+        }
        this.setState({
-         todos: snapshot.val(),
+        //  packTodos: snapshot.val(),
+         packTodos: data
        })
     })
 
     buyingRef.on('value', (snapshot) => {
-      console.log(snapshot.val());
+      let data = snapshot.val();
+      if (data === null) {
+        data={};
+      }
       this.setState({
-        todos: snapshot.val(),
+        buyTodos: data
       })
     })
 
     visitRef.on('value', (snapshot) => {
-      console.log(snapshot.val());
+      let data = snapshot.val();
+      if (data === null) {
+        data={};
+      }
       this.setState({
-        todos: snapshot.val(),
+        visitTodos: data
       })
     })
 
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then(function (result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const token = result.credential.accessToken;
+
+      // Get the signed-in user info.
+      const user = result.user;
+      // ...
+    }).catch(function (error) {
+      // Error handling goes in here.
+      console.log(error)
+    });
+
+    
+
   };  
   
-  toggleComplete = (key) => {
-    // console.log('clicked');
-    console.log(key);
-    this.state.todos[key].complete === true ?
-    packingRef.child(`${key}`).update({ complete: false }) :
-    packingRef.child(`${key}`).update({ complete: true })
-  }
 
   addToPack = (todo) => {
-      console.log(todo);
       packingRef.push({item: todo, complete: false});
   };
 
   addToBuy = (todo) => {
-    console.log(todo);
     buyingRef.push({ item: todo, complete: false });
   };
 
   addToVisit = (todo) => {
-    console.log(todo);
-    buyingRef.push({ item: todo, complete: false });
+    visitRef.push({ item: todo, complete: false });
   };
 
+  togglePackComplete = (key) => {
+    this.state.packTodos[key].complete === true ?
+      packingRef.child(`${key}`).update({ complete: false }) :
+      packingRef.child(`${key}`).update({ complete: true })
+  }
 
+  toggleBuyComplete = (key) => {
+    this.state.buyTodos[key].complete === true ?
+      buyingRef.child(`${key}`).update({ complete: false }) :
+      buyingRef.child(`${key}`).update({ complete: true })
+  }
 
-  
-  
+  toggleVisitComplete = (key) => {
+    this.state.visitTodos[key].complete === true ?
+      visitRef.child(`${key}`).update({ complete: false }) :
+      visitRef.child(`${key}`).update({ complete: true })
+  }
+
+  deleteTodo = (todoID) => {
+    packingRef.child(`${todoID}`).remove();
+    buyingRef.child(`${todoID}`).remove();
+    visitRef.child(`${todoID}`).remove();
+  }
+
 
   render() {
-    console.log('app render called');
     return (
       <div className="App">
         <header>
-          <h1>GetDo <i className="fas fa-plane"></i></h1>
+          <h1 className="animated slideInLeft">GetDo <i className="fas fa-plane"></i></h1>
+          <h4 className="animated slideInLeft">Plan now. Explore later.</h4>
         </header>
-        <Form addToPack={this.addToPack} />
-        <TodoList todos = {this.state.todos} toggleComplete ={this.toggleComplete}/>
+        <Form addToPack={this.addToPack} addToBuy={this.addToBuy} addToVisit={this.addToVisit} />
+        <TodoList packTodos={this.state.packTodos} buyTodos={this.state.buyTodos} visitTodos={this.state.visitTodos} deleteTodo={this.deleteTodo} togglePackComplete={this.togglePackComplete} toggleBuyComplete={this.toggleBuyComplete} toggleVisitComplete={this.toggleVisitComplete} />
       </div>
     );
   }

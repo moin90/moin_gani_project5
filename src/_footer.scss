@@ -1,0 +1,23 @@
+footer {
+  width: 100%;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 10px;
+  letter-spacing: 0.2px;
+    a:hover {
+    color: lightsalmon;
+    transition: 0.2s all ease;
+    }
+    span {
+    position: absolute;
+    right: 20px;
+  }
+    i {
+      color: white;
+    }
+}

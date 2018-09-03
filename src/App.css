@@ -50,15 +50,16 @@ p {
 }
 
 footer {
-  position: fixed;
-  background-color: black;
-  bottom: 0;
   width: 100%;
-  left: 0;
+  position: fixed;
   right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
   text-align: center;
   font-size: 1.2rem;
   padding: 5px;
+  letter-spacing: 0.2px;
 }
 
 footer span {
@@ -196,5 +197,42 @@ li:nth-of-type(1) {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
+/*/----------------------- MEDIA QUERIES ----------------------------------------------- */
+
+@media (max-width: 701px) {
+  footer {
+    text-align: left;
+  }
+}
+
+@media (max-width: 550px) {
+  .inputs {
+    flex-direction: column;
+  }
+
+  input {
+    margin-left: 0;
+    text-align: center;
+    margin-top: 5px;
+    width: 80%;
+  }
+
+  h2 {
+    border-bottom: 1px solid black;
+  }
+}
+
+@media (max-width: 450px) {
+  footer {
+    display: none;
+  }
+
+  header h4 {
+    display: none;
+  }
+  
+}
+
 
 

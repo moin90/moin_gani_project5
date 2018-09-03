@@ -1,6 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import FlipMove from "react-flip-move";
-import CSSTransition from 'react-transition-group/CSSTransition';
 
 class TodoList extends Component {
 
@@ -27,33 +25,33 @@ class TodoList extends Component {
                 <div className="todolistContent buy">
                     <h2>Buy Before Trip</h2>
                     <ul className="fa-ul">
-                    {Object.keys(this.props.buyTodos).map((key) => {
-                        return (
-                            <Fragment key={key}>
-                                <li className={this.props.buyTodos[key].complete ? "strikethrough" : null} onClick={() =>
-                                this.props.toggleBuyComplete(key)} key={key}>
-                                {this.props.buyTodos[key].item}<span className="fa-li"><i className="fas fa-dollar-sign"></i></span>
-                                </li>
-                                <button className="delete" onClick={() => this.props.deleteTodo(key)}>Delete</button>
-                            </Fragment>
-                        )
-                    })}
+                        {Object.keys(this.props.buyTodos).map((key) => {
+                            return (
+                                <Fragment key={key}>
+                                    <li className={this.props.buyTodos[key].complete ? "strikethrough" : null} onClick={() =>
+                                    this.props.toggleBuyComplete(key)} key={key}>
+                                    {this.props.buyTodos[key].item}<span className="fa-li"><i className="fas fa-dollar-sign"></i></span>
+                                    </li>
+                                    <button className="delete" onClick={() => this.props.deleteTodo(key)}>Delete</button>
+                                </Fragment>
+                            )
+                        })}
                     </ul>
                 </div>
 
                 <div className="todolistContent visit">
                     <h2>Places to Visit</h2>
                     <ul className="fa-ul">
-                    {Object.keys(this.props.visitTodos).map((key) => {
-                        return (
-                            <Fragment key={key}>
-                                <li className={this.props.visitTodos[key].complete ? "strikethrough" : null} onClick={() =>
-                                    this.props.toggleVisitComplete(key)} key={key}>{this.props.visitTodos[key].item} <span className="fa-li"><i className="fas fa-car"></i></span>
-                                </li>
-                                <button className="delete" onClick={() => this.props.deleteTodo(key)}>Delete</button>
-                            </Fragment>
-                        )
-                    })}
+                        {Object.keys(this.props.visitTodos).map((key) => {
+                            return (
+                                <Fragment key={key}>
+                                    <li className={this.props.visitTodos[key].complete ? "strikethrough" : null} onClick={() =>
+                                        this.props.toggleVisitComplete(key)} key={key}>{this.props.visitTodos[key].item} <span className="fa-li"><i className="fas fa-car"></i></span>
+                                    </li>
+                                    <button className="delete" onClick={() => this.props.deleteTodo(key)}>Delete</button>
+                                </Fragment>
+                            )
+                        })}
                     </ul>
                 </div>
             </div>

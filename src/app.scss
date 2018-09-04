@@ -84,16 +84,13 @@ p {
   align-items: center;
 }
 
-input {
+input, .add {
   width: 200px;
   margin-left: 30px;
   margin-top: 20px;
   border: none;
   background-color: #f6f6f6;
   padding: 8px;
-    &:nth-of-type(1) {
-      margin-left: 0;
-    }
 }
 
 input[type=text] {
@@ -108,14 +105,13 @@ input[type=text] {
     }
 }
 
-input[type=submit] {
+.add {
   background-color: black;
   color: white;
-}
-
-button:hover {
-  color: black;
-  transition: 0.2s all ease;
+    i {
+      position: absolute;
+      right: 25px;
+    }
 }
 
 ul {
@@ -148,7 +144,7 @@ li {
   text-decoration: line-through;
   color: dodgerblue;
   transition: 0.2s all ease;
-}
+} 
 
 .delete {
   width: 50px;
@@ -161,6 +157,10 @@ li {
   margin-top: 10px;
   border: none;
   cursor: pointer;
+    &:hover {
+      color: black;
+      transition: 0.2s all ease;
+    }
 }
 
 /*/----------------------- MEDIA QUERIES ----------------------------------------------- */
@@ -180,7 +180,7 @@ li {
     flex-direction: column;
   }
 
-  input {
+  input, .add {
     margin-left: 0;
     text-align: center;
     margin-top: 10px;

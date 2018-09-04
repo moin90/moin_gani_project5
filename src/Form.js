@@ -47,15 +47,15 @@ class Form extends Component {
             <form onSubmit={this.handleSubmit}>
                 <div className="inputs">
                     <input type="text" onChange={this.handlePackChange} value={this.state.packValue} placeholder="What to pack?"/>
-                        <input type="submit" value="Add to Packing List" className="hvr-grow-shadow" />
+                    <button type="submit" className="add hvr-grow-shadow">+ Packing List <i className="fas fa-suitcase-rolling"></i></button>
                 </div>
                 <div className="inputs">
                     <input type="text" onChange={this.handleBuyChange} value={this.state.buyValue} placeholder="What to buy?" />
-                        <input type="submit" value="Add to Shopping List" className="hvr-grow-shadow" />
+                    <button type="submit" className="add hvr-grow-shadow">+ Cart <i className="fas fa-shopping-cart"></i></button>
                 </div>
                 <div className="inputs">
                     <input type="text" onChange={this.handleVisitChange} value={this.state.visitValue} placeholder="Where to visit?"/>
-                        <input type="submit" value="Add to Visit List" className="hvr-grow-shadow"/>
+                    <button type="submit" className=" add hvr-grow-shadow">+ Visit List <i className="fas fa-globe-americas"></i></button>
                 </div>
             </form>
         </div>

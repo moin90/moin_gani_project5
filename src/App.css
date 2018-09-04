@@ -235,15 +235,13 @@ p {
   justify-content: center;
   align-items: center; }
 
-input {
+input, .add {
   width: 200px;
   margin-left: 30px;
   margin-top: 20px;
   border: none;
   background-color: #f6f6f6;
   padding: 8px; }
-  input:nth-of-type(1) {
-    margin-left: 0; }
 
 input[type=text] {
   outline: none;
@@ -255,13 +253,12 @@ input[type=text] {
     border: 0 2px solid #51cbee;
     border-bottom: none; }
 
-input[type=submit] {
+.add {
   background-color: black;
   color: white; }
-
-button:hover {
-  color: black;
-  transition: 0.2s all ease; }
+  .add i {
+    position: absolute;
+    right: 25px; }
 
 ul {
   padding: 0; }
@@ -299,6 +296,9 @@ li {
   margin-top: 10px;
   border: none;
   cursor: pointer; }
+  .delete:hover {
+    color: black;
+    transition: 0.2s all ease; }
 
 /*/----------------------- MEDIA QUERIES ----------------------------------------------- */
 @media (max-width: 701px) {
@@ -310,7 +310,7 @@ li {
     width: 100%; }
   .inputs {
     flex-direction: column; }
-  input {
+  input, .add {
     margin-left: 0;
     text-align: center;
     margin-top: 10px;

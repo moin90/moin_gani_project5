@@ -242,24 +242,22 @@ input {
   border: none;
   background-color: #f6f6f6;
   padding: 8px; }
+  input:nth-of-type(1) {
+    margin-left: 0; }
 
 input[type=text] {
   outline: none;
   border: none;
   transition: 0.2s all ease;
   border-bottom: 2px solid black; }
-
-input[type=text]:focus {
-  box-shadow: 0 2px #51cbee;
-  border: 0 2px solid #51cbee;
-  border-bottom: none; }
+  input[type=text]:focus {
+    box-shadow: 0 2px #51cbee;
+    border: 0 2px solid #51cbee;
+    border-bottom: none; }
 
 input[type=submit] {
   background-color: black;
   color: white; }
-
-input:nth-of-type(1) {
-  margin-left: 0; }
 
 button:hover {
   color: black;
@@ -280,13 +278,14 @@ li {
   margin: 0;
   margin-top: 10px;
   text-transform: capitalize; }
-
-li:nth-of-type(1) {
-  margin-top: 0; }
+  li:hover {
+    color: dodgerblue; }
+  li:nth-of-type(1) {
+    margin-top: 0; }
 
 .strikethrough {
   text-decoration: line-through;
-  color: red;
+  color: dodgerblue;
   transition: 0.2s all ease; }
 
 .delete {

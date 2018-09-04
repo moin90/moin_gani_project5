@@ -11,8 +11,6 @@ class Form extends Component {
     }
 
     handlePackChange = (e) => {
-        // console.log(e);
-        console.table(e.target.value);
         this.setState({
             packValue: e.target.value
         })
@@ -30,11 +28,8 @@ class Form extends Component {
         })
     }
 
-
     handleSubmit = (e) => {
-        // preventing the page from refreshing
         e.preventDefault();
-
         this.state.packValue!==''? this.props.addToPack(this.state.packValue): null;
         this.state.buyValue!==''? this.props.addToBuy(this.state.buyValue): null;
         this.state.visitValue!==''? this.props.addToVisit(this.state.visitValue): null;

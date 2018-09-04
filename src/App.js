@@ -10,7 +10,6 @@ const visitRef = firebase.database().ref('/visit');
 
 class App extends Component {
 
-
   constructor() {
     super();
     this.state = {
@@ -20,7 +19,6 @@ class App extends Component {
     }
   }
 
-  
   componentDidMount() {
     packingRef.on('value', (snapshot) => {
         let data = snapshot.val();
@@ -53,6 +51,8 @@ class App extends Component {
       })
     })
 
+    /////////////////////////////////////// FIREBASE GOOGLE AUTHENTICATION ////////////////////////////////////////////
+
     const provider = new firebase.auth.GoogleAuthProvider();
 
     firebase.auth().signInWithPopup(provider).then(function (result) {
@@ -66,11 +66,9 @@ class App extends Component {
       // Error handling goes in here.
       console.log(error)
     });
-
-    
-
-  };  
+  }; 
   
+  //Add functions to be used as props
 
   addToPack = (todo) => {
       packingRef.push({item: todo, complete: false});
@@ -83,6 +81,8 @@ class App extends Component {
   addToVisit = (todo) => {
     visitRef.push({ item: todo, complete: false });
   };
+
+  //Toggle functions to be used as props
 
   togglePackComplete = (key) => {
     this.state.packTodos[key].complete === true ?
@@ -102,12 +102,13 @@ class App extends Component {
       visitRef.child(`${key}`).update({ complete: true })
   }
 
+  // Delete function to be used as prop
+
   deleteTodo = (todoID) => {
     packingRef.child(`${todoID}`).remove();
     buyingRef.child(`${todoID}`).remove();
     visitRef.child(`${todoID}`).remove();
   }
-
 
   render() {
     return (
